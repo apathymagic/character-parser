@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import ConfigParser as config_parser
+import configparser as config_parser
 import datetime
 
 class Odometry():
@@ -43,13 +43,28 @@ def write_file():
     print("write: " + line)
   f_out.close()
 
+## Test function
+
+import functools
+from clockdeco import clock
+
+@functools.lru_cache()
+@clock
+def fibonacci(n):
+  if n < 2:
+    return n
+  return fibonacci(n - 2) + fibonacci(n - 1) 
+
 ################################################################
 # Main function
 ################################################################
 def main():
-  parse_config()
-  read_file()
-  write_file()
+  # parse_config()
+  # read_file()
+  # write_file()
+  fibonacci(8)
+  print(fibonacci)
+  help(fibonacci)
 
 if __name__ == "__main__":
   main()
